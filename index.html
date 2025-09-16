@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | METATIP</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    /* Logo wrapper */
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      max-width: 900px;       /* large desktop */
+      height: auto;
+      max-height: 80vh;       /* fills screen gracefully */
+      object-fit: contain;
+    }
+
+    /* Continue button */
+    .btn {
+      background: #1b7990;
+      color: #fff;
+      padding: 1rem 2.2rem;
+      border-radius: 14px;
+      border: none;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.2s ease forwards;
+      animation-delay: 1.5s;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #145b6e;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(27, 121, 144, 0.3);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile scaling */
+    @media (max-width: 520px) {
+      .logo-wrap img {
+        max-width: 90vw;
+        max-height: 60vh;
+      }
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-wrap">
+    <img src="DarkLogo.png" alt="METATIP Logo">
+  </div>
+
+  <button class="btn" onclick="location.href='menu.html'">Continue</button>
+</body>
+</html>
