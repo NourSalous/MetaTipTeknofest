@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrgansMenu | METATIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --turquoise: #1b7990;
+      --black: #111;
+      --white: #fff;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body{
+      font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background: var(--white);
+      color: var(--black);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 36px 20px;
+      overflow-x: hidden;
+    }
+
+    /* Animations */
+    @keyframes drop {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUpFade {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo { animation: drop 0.8s ease-out forwards; }
+    .slide-up {
+      opacity: 0;
+      animation: slideUpFade 0.6s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.4s; }
+    .delay-2 { animation-delay: 0.5s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.7s; }
+    .delay-5 { animation-delay: 0.8s; }
+    .delay-6 { animation-delay: 0.9s; }
+
+    /* Header logo */
+    header{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom: 28px;
+    }
+
+    header img {
+      width: 80vw;
+      max-width: 400px;
+      min-width: 150px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Back to Welcome button */
+    .back-btn {
+      margin-top: 12px;
+      text-decoration: none;
+      color: var(--turquoise);
+      font-weight: 600;
+      transition: 0.3s ease;
+      opacity: 0;
+      display: inline-block;
+      animation: slideUpFade 0.6s ease-out forwards;
+      animation-delay: 0.35s;
+    }
+    .back-btn:hover { color: #16707a; }
+
+    /* Page title */
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--black);
+      margin-top: 20px;
+    }
+    .subtitle {
+      font-size: 1.05rem;
+      font-weight: 500;
+      text-align: center;
+      color: #666;
+      margin: 8px 0 28px;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 36px 0 6px;
+      text-align: center;
+      color: var(--turquoise);
+    }
+    .section-sub {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #666;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Grid of cards */
+    .grid {
+      width: 100%;
+      max-width: 800px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 18px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid #ececec;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      text-decoration: none;
+      color: var(--black);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(27,121,144,0.11);
+      border-color: #e6f4f6;
+    }
+
+    .icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(180deg, var(--turquoise), #16707a);
+      box-shadow: 0 8px 24px rgba(27,121,144,0.12);
+    }
+    .icon img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(0) invert(1);
+    }
+
+    .card-title { font-weight: 700; font-size: 1.05rem; text-align: center; }
+    .card-sub { font-size: 0.92rem; color:#666; font-weight:500; text-align: center; }
+
+    /* Tweak grid spacing on small screens */
+    @media(max-width: 520px) {
+      .icon { width: 56px; height: 56px; }
+      .grid { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="DarkLogo.png" alt="METATIP Logo" class="logo">
+  </header>
+
+  <a href="index.html" class="back-btn">← Back to Welcome</a>
+
+  <!-- Page Title -->
+  <div class="page-title slide-up delay-1">Organs</div>
+  <div class="subtitle slide-up delay-2">Discover human anatomy in 3D & AR</div>
+
+  <!-- Section 1: Computer Generated Anatomy -->
+  <div class="section-title slide-up delay-3">Computer-Generated Models</div>
+  <div class="section-sub slide-up delay-3">High-fidelity anatomical structures created digitally</div>
+  <div class="grid">
+    <!-- Heart -->
+    <a class="card slide-up delay-3" href="heart.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/954/954528.png" alt="Heart">
+      </div>
+      <div class="card-title">Heart</div>
+      <div class="card-sub">Interactive 3D & AR Experience</div>
+    </a>
+
+    <!-- Skeleton -->
+    <a class="card slide-up delay-4" href="skeleton.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/7437/7437376.png" alt="Skeleton">
+      </div>
+      <div class="card-title">Skeleton</div>
+      <div class="card-sub">Complete Virtual Bone Structure</div>
+    </a>
+  </div>
+
+  <!-- Section 2: Real Anatomy -->
+  <div class="section-title slide-up delay-4">Real Anatomy Models</div>
+  <div class="section-sub slide-up delay-4">MRI & CT scan data transformed into true-to-life 3D</div>
+  <div class="grid">
+    <!-- Neck -->
+    <a class="card slide-up delay-5" href="neck.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/4533/4533534.png" alt="Neck">
+      </div>
+      <div class="card-title">Neck</div>
+      <div class="card-sub">3D Cervical Spine from MRI Scan</div>
+    </a>
+
+    <!-- SkullChest -->
+    <a class="card slide-up delay-6" href="skullchest.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/10299/10299270.png" alt="SkullChest">
+      </div>
+      <div class="card-title">Skull & Chest</div>
+      <div class="card-sub">3D Upper Body from MRI Scan</div>
+    </a>
+
+    <!-- Chest -->
+    <a class="card slide-up delay-1" href="chest.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/7220/7220470.png" alt="Chest">
+      </div>
+      <div class="card-title">Chest</div>
+      <div class="card-sub">3D Thoracic Cavity from MRI Scan</div>
+    </a>
+  </div>
+
+</body>
+</html>
